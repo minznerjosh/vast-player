@@ -1,0 +1,59 @@
+{
+  "name": "vast-player",
+  "version": "0.0.0",
+  "description": "Playback VAST creatives in a web browser.",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test",
+    "prepublish": "npm test && npm run build",
+    "build": "grunt build",
+    "tdd": "grunt tdd",
+    "examples": "grunt server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cinema6/vast-player.git"
+  },
+  "keywords": [
+    "vast",
+    "vpaid",
+    "iab",
+    "video",
+    "ads",
+    "ads",
+    "advertising",
+    "video",
+    "player",
+    "video",
+    "player"
+  ],
+  "author": "Reelcontent, Inc.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cinema6/vast-player/issues"
+  },
+  "homepage": "https://github.com/cinema6/vast-player#readme",
+  "devDependencies": {
+    "brfs": "^1.4.3",
+    "browserify": "^13.0.0",
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^4.0.1",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-clean": "^0.7.0",
+    "grunt-contrib-connect": "^0.11.2",
+    "grunt-contrib-jshint": "^0.12.0",
+    "grunt-contrib-uglify": "^0.11.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-karma": "^0.12.1",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.19",
+    "karma-browserify": "^5.0.1",
+    "karma-jasmine": "^0.3.7",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "phantomjs-prebuilt": "^2.1.4",
+    "proxyquire": "^1.7.4",
+    "proxyquire-universal": "^1.0.8",
+    "proxyquireify": "^3.1.1",
+    "watchify": "^3.7.0"
+  }
+}

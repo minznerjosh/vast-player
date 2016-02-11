@@ -1,0 +1,7 @@
+{
+    "extends": "../.jshintrc",
+    "browser": true,
+    "browserify": true,
+    "node": false,
+    "devel": false
+}
