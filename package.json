@@ -55,5 +55,8 @@
     "proxyquire-universal": "^1.0.8",
     "proxyquireify": "^3.1.1",
     "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "lie": "^3.0.2"
   }
 }
