@@ -57,6 +57,7 @@
     "watchify": "^3.7.0"
   },
   "dependencies": {
-    "lie": "^3.0.2"
+    "lie": "^3.0.2",
+    "sort-by": "^1.1.1"
   }
 }
