@@ -50,7 +50,7 @@ module.exports = function gruntfile(grunt) {
         browserify: {
             options: {
                 browserifyOptions: {
-                    standalone: 'vastPlayer'
+                    standalone: 'VASTPlayer'
                 }
             },
 

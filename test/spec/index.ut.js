@@ -1,6 +1,7 @@
 'use strict';
 
 var proxyquire = require('proxyquire');
+var VASTPlayer = require('../../lib/VASTPlayer');
 
 describe('index.js', function() {
     var index;
@@ -8,13 +9,15 @@ describe('index.js', function() {
 
     beforeEach(function() {
         stubs = {
+            './lib/VASTPlayer': VASTPlayer,
+
             '@noCallThru': true
         };
 
         index = proxyquire('../../index', stubs);
     });
 
-    it('should exist', function() {
-        expect(index).toEqual(jasmine.any(Object));
+    it('should be the VASTPlayer', function() {
+        expect(index).toBe(VASTPlayer);
     });
 });
