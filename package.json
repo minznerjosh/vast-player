@@ -59,7 +59,14 @@
     "watchify": "^3.7.0"
   },
   "dependencies": {
+    "browserify-versionify": "^1.0.6",
     "lie": "^3.0.2",
-    "sort-by": "^1.1.1"
+    "sort-by": "^1.1.1",
+    "vastacular": "^0.2.0"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-versionify"
+    ]
   }
 }
