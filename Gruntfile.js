@@ -92,14 +92,23 @@ module.exports = function gruntfile(grunt) {
             }
         },
         mxmlc: {
+            options: {
+                rawConfig: '-compiler.source-path=./lib/as3/src'
+            },
+
             build: {
-                options: {
-                    rawConfig: '-compiler.source-path=./lib/as3/src'
-                },
                 files: [
                     {
                         src: 'lib/as3/src/com/reelcontent/vpaidadapter/main/Player.as',
                         dest: 'dist/vast-player--vpaid.swf'
+                    }
+                ]
+            },
+            server: {
+                files: [
+                    {
+                        src: 'lib/as3/src/com/reelcontent/vpaidadapter/main/Player.as',
+                        dest: 'examples/.build/vast-player--vpaid.swf'
                     }
                 ]
             }
@@ -120,8 +129,10 @@ module.exports = function gruntfile(grunt) {
                     livereload: true
                 },
                 files: [
-                    'examples/**'
-                ]
+                    'examples/**',
+                    'lib/as3/**'
+                ],
+                tasks: ['mxmlc:server']
             }
         }
     });
@@ -140,6 +151,7 @@ module.exports = function gruntfile(grunt) {
 
     grunt.registerTask('server', [
         'browserify:server',
+        'mxmlc:server',
         'connect:server',
         'watch:server'
     ]);

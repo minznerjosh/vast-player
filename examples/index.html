@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vast-Player Example</title>
+        <script src="./.build/vast-player.js"></script>
+        <style>
+            #container {
+                width: 640px; height: 385px;
+                border: 1px black solid;
+                position: relative;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container"></div>
+            <button id="startAd" onclick="player.startAd();" disabled>startAd()</button>
+            <button id="stopAd" onclick="player.stopAd();" disabled>stopAd()</button>
+            <button id="pauseAd" onclick="player.pauseAd();" disabled>pauseAd()</button>
+            <button id="resumeAd" onclick="player.resumeAd();" disabled>resumeAd()</button>
+        <script>
+            (function(VASTPlayer) {
+                'use strict';
+
+                var buttons = {
+                    startAd: document.getElementById('startAd'),
+                    stopAd: document.getElementById('stopAd'),
+                    pauseAd: document.getElementById('pauseAd'),
+                    resumeAd: document.getElementById('resumeAd')
+                };
+
+                VASTPlayer.vpaidSWFLocation = './.build/vast-player--vpaid.swf';
+
+                var player = new VASTPlayer(document.getElementById('container'));
+
+                player.once('AdStarted', function() {
+                    buttons.stopAd.disabled = false;
+                    buttons.pauseAd.disabled = false;
+                    buttons.resumeAd.disabled = false;
+                });
+
+                [
+                    'AdLoaded',
+                    'AdStarted',
+                    'AdStopped',
+                    'AdSkipped',
+                    'AdSkippableStateChange',
+                    'AdSizeChange',
+                    'AdLinearChange',
+                    'AdDurationChange',
+                    'AdExpandedChange',
+                    'AdRemainingTimeChange',
+                    'AdVolumeChange',
+                    'AdImpression',
+                    'AdVideoStart',
+                    'AdVideoFirstQuartile',
+                    'AdVideoMidpoint',
+                    'AdVideoThirdQuartile',
+                    'AdVideoComplete',
+                    'AdClickThru',
+                    'AdInteraction',
+                    'AdUserAcceptInvitation',
+                    'AdUserMinimize',
+                    'AdUserClose',
+                    'AdPaused',
+                    'AdPlaying',
+                    'AdLog',
+                    'AdError'
+                ].forEach(function(type) {
+                    player.on(type, function() {
+                        var args = Array.prototype.slice.call(arguments);
+                        console.log.apply(console, ['EVENT: ' + type].concat(args));
+                    });
+                });
+
+                player.load(
+                    'https://platform-staging.reelcontent.com/api/public/vast/2.0/tag?campaign=cam-e951792a909f17'
+                ).then(function() {
+                    window.player = player;
+
+                    buttons.startAd.disabled = false;
+                }).catch(function(reason) {
+                    console.error(reason);
+                });
+            }(window.VASTPlayer));
+        </script>
+    </body>
+</html>
