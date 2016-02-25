@@ -91,6 +91,19 @@ module.exports = function gruntfile(grunt) {
                 ]
             }
         },
+        mxmlc: {
+            build: {
+                options: {
+                    rawConfig: '-compiler.source-path=./lib/as3/src'
+                },
+                files: [
+                    {
+                        src: 'lib/as3/src/com/reelcontent/vpaidadapter/main/Player.as',
+                        dest: 'dist/vast-player--vpaid.swf'
+                    }
+                ]
+            }
+        },
 
         connect: {
             server: {
@@ -121,7 +134,8 @@ module.exports = function gruntfile(grunt) {
     grunt.registerTask('build', [
         'clean:build',
         'browserify:build',
-        'uglify:build'
+        'uglify:build',
+        'mxmlc:build'
     ]);
 
     grunt.registerTask('server', [
