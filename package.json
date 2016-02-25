@@ -10,6 +10,11 @@
     "tdd": "grunt tdd",
     "examples": "grunt server"
   },
+  "files": [
+    "dist",
+    "lib",
+    "index.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cinema6/vast-player.git"
