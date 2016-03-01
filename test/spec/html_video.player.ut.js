@@ -479,6 +479,30 @@ describe('HTMLVideo(container)', function() {
                         });
                     });
 
+                    describe('if the closes match is unplayable', function() {
+                        beforeEach(function() {
+                            mediaFiles = [
+                                { type: 'video/x-flv', bitrate: 50, width: 100, height: 50, uri: 'http://videos.com/video0.flv' },
+                                { type: 'video/x-flv', width: 300, height: 200, uri: 'http://videos.com/video1.flv' },
+                                { type: 'video/x-flv', width: 400, height: 300, uri: 'http://videos.com/video2.flv' },
+                                { type: 'video/x-flv', width: 500, height: 400, uri: 'http://videos.com/video3.flv' },
+                                { type: 'video/webm', width: 300, height: 200, uri: 'http://videos.com/video1.webm' },
+                                { type: 'video/webm', width: 400, height: 300, uri: 'http://videos.com/video2.webm' },
+                                { type: 'video/webm', width: 500, height: 400, uri: 'http://videos.com/video3.webm' },
+                                { type: 'video/3gp', bitrate: 50, width: 200, height: 100, uri: 'http://videos.com/video1.3gp' },
+                                { type: 'video/3gp', bitrate: 50, width: 300, height: 200, uri: 'http://videos.com/video2.3gp' },
+                                { type: 'video/3gp', bitrate: 50, width: 400, height: 300, uri: 'http://videos.com/video3.3gp' },
+                                { type: 'video/mp4', bitrate: 100, width: 300, height: 200, uri: 'http://videos.com/video1.mp4' },
+                                { type: 'video/mp4', bitrate: 100, width: 400, height: 300, uri: 'http://videos.com/video2.mp4' },
+                                { type: 'video/mp4', bitrate: 100, width: 500, height: 400, uri: 'http://videos.com/video3.mp4' },
+                            ];
+                        });
+
+                        it('should not use it', function() {
+                            expect(load(100, 50).src).toBe('http://videos.com/video1.3gp');
+                        });
+                    });
+
                     describe('if no mediaFiles are provided', function() {
                         beforeEach(function(done) {
                             success.calls.reset();
