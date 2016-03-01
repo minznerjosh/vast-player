@@ -155,13 +155,11 @@ describe('FlashVPAID(container, swfURI)', function() {
                         eventCallback: 'vast_player__' + uuid.calls.mostRecent().returnValue
                     }), 'param[flashvars]');
                     expect(object.querySelector('param[name="quality"]').getAttribute('value')).toBe('high', 'param[quality]');
-                    expect(object.querySelector('param[name="play"]').getAttribute('value')).toBe('true', 'param[play]');
-                    expect(object.querySelector('param[name="loop"]').getAttribute('value')).toBe('true', 'param[loop]');
-                    expect(object.querySelector('param[name="wmode"]').getAttribute('value')).toBe('window', 'param[wmode]');
-                    expect(object.querySelector('param[name="scale"]').getAttribute('value')).toBe('showall', 'param[scale]');
-                    expect(object.querySelector('param[name="menu"]').getAttribute('value')).toBe('true', 'param[menu]');
-                    expect(object.querySelector('param[name="devicefont"]').getAttribute('value')).toBe('false', 'param[devicefont]');
-                    expect(object.querySelector('param[name="salign"]').getAttribute('value')).toBe('', 'param[salign]');
+                    expect(object.querySelector('param[name="play"]').getAttribute('value')).toBe('false', 'param[play]');
+                    expect(object.querySelector('param[name="loop"]').getAttribute('value')).toBe('false', 'param[loop]');
+                    expect(object.querySelector('param[name="wmode"]').getAttribute('value')).toBe('opaque', 'param[wmode]');
+                    expect(object.querySelector('param[name="scale"]').getAttribute('value')).toBe('noscale', 'param[scale]');
+                    expect(object.querySelector('param[name="salign"]').getAttribute('value')).toBe('lt', 'param[salign]');
                     expect(object.querySelector('param[name="allowScriptAccess"]').getAttribute('value')).toBe('always', 'param[allowScriptAccess]');
                 });
 
