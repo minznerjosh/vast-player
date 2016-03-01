@@ -25,7 +25,7 @@
 
             _black.graphics.clear();
             _black.graphics.beginFill(0x000000);
-            _black.graphics.drawRect(0, 0, 1, 1);
+            _black.graphics.drawRect(0, 0, stage.stageWidth, stage.stageHeight);
             _black.graphics.endFill();
 
             addChild(_black);
