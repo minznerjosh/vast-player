@@ -317,6 +317,20 @@ describe('FlashVPAID(container, swfURI)', function() {
                                 expect(object.initAd).toHaveBeenCalledWith(800, 600, 'normal', mediaFiles[0].bitrate, parameters, null);
                             });
 
+                            describe('and emits "VPAIDInterfaceResize"', function() {
+                                beforeEach(function() {
+                                    spyOn(player, 'resizeAd').and.returnValue(LiePromise.resolve(player));
+
+                                    container.style.width = '1024px';
+                                    container.style.height = '768px';
+                                    player.emit('VPAIDInterfaceResize');
+                                });
+
+                                it('should resize the ad', function() {
+                                    expect(player.resizeAd).toHaveBeenCalledWith(1024, 768, 'normal');
+                                });
+                            });
+
                             describe('and emits "AdLoaded"', function() {
                                 beforeEach(function(done) {
                                     player.emit(VPAID_EVENTS.AdLoaded);

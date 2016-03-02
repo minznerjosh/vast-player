@@ -138,6 +138,10 @@
             eventCallback({ type: "VPAIDInterfaceReady" });
         }
 
+        private function onStageResize(evt:Event):void {
+            eventCallback({ type: "VPAIDInterfaceResize" });
+        }
+
         private function eventCallback(event:Object):void {
             if (ExternalInterface.available) {
                 try {
@@ -261,7 +265,7 @@
             creativeData:Object = null,
             environmentVars:Object = null
         ):void {
-            if (_vpaid)
+            if (_vpaid) {
                 _vpaid.initAd(
                     width,
                     height,
@@ -270,6 +274,9 @@
                     creativeData,
                     environmentVars
                 );
+
+                stage.addEventListener(Event.RESIZE, onStageResize);
+            }
         }
 
         public function resizeAd(width:Number, height:Number, viewMode:String):void {
