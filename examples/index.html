@@ -17,20 +17,23 @@
             <button id="stopAd" onclick="player.stopAd();" disabled>stopAd()</button>
             <button id="pauseAd" onclick="player.pauseAd();" disabled>pauseAd()</button>
             <button id="resumeAd" onclick="player.resumeAd();" disabled>resumeAd()</button>
+            <button id="resizeAd" onclick="window.container.style.width = '1000px'; window.container.style.height = '602px';" disabled>resizeAd()</button>
         <script>
             (function(VASTPlayer) {
                 'use strict';
 
+                VASTPlayer.vpaidSWFLocation = './.build/vast-player--vpaid.swf';
+
+                var player = new VASTPlayer(document.getElementById('container'));
                 var buttons = {
                     startAd: document.getElementById('startAd'),
                     stopAd: document.getElementById('stopAd'),
                     pauseAd: document.getElementById('pauseAd'),
-                    resumeAd: document.getElementById('resumeAd')
+                    resumeAd: document.getElementById('resumeAd'),
+                    resizeAd: document.getElementById('resizeAd')
                 };
 
-                VASTPlayer.vpaidSWFLocation = './.build/vast-player--vpaid.swf';
-
-                var player = new VASTPlayer(document.getElementById('container'));
+                window.container = document.getElementById('container');
 
                 player.once('AdStarted', function() {
                     buttons.stopAd.disabled = false;
@@ -78,6 +81,7 @@
                     window.player = player;
 
                     buttons.startAd.disabled = false;
+                    buttons.resizeAd.disabled = false;
                 }).catch(function(reason) {
                     console.error(reason);
                 });
