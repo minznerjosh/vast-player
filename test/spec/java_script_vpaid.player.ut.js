@@ -151,6 +151,11 @@ describe('JavaScriptVPAID(container)', function() {
                     expect(iframe.contentWindow.document.body.style.margin).toBe('0px');
                 });
 
+                it('should make sure the iframe\'s url protocol matches the protocol of the parent page', function() {
+                    expect(iframe.contentWindow.location.href).toBe(window.location.href);
+                    expect(iframe.contentWindow.location.protocol).toBe(window.location.protocol);
+                });
+
                 it('should save a reference to the iframe', function() {
                     expect(player.frame).toBe(iframe);
                 });
