@@ -1,6 +1,6 @@
 {
   "name": "vast-player",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Playback VAST creatives in a web browser.",
   "main": "index.js",
   "scripts": {
