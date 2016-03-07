@@ -515,6 +515,23 @@ describe('VASTPlayer(container, config)', function() {
                                 expect(ready).toHaveBeenCalledWith();
                             });
                         });
+
+                        describe('and the JavaScript creative has a mime type of application/x-javascript', function() {
+                            beforeEach(function(done) {
+                                vast.find('ads[0].creatives[0].mediaFiles', function(mediaFile) {
+                                    return mediaFile.apiFramework === 'VPAID' && mediaFile.type === 'application/javascript';
+                                }).type = 'application/x-javascript';
+
+                                player = new VASTPlayer(container);
+                                player.load(uri);
+                                process.nextTick(done);
+                            });
+
+                            it('should create a JavaScriptVPAID player', function() {
+                                expect(player.__private__.player).toEqual(jasmine.any(JavaScriptVPAID));
+                                expect(player.__private__.player.container).toBe(container);
+                            });
+                        });
                     });
 
                     describe('if there is only a SWF VPAID mediaFile', function() {

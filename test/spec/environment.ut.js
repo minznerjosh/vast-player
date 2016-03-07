@@ -114,6 +114,16 @@ describe('environment', function() {
                 });
             });
 
+            describe('if the type is "application/x-javascript"', function() {
+                beforeEach(function() {
+                    type = 'application/x-javascript';
+                });
+
+                it('should return 2', function() {
+                    expect(canPlay(type)).toBe(2);
+                });
+            });
+
             describe('if the type is "application/x-shockwave-flash"', function() {
                 beforeEach(function() {
                     type = 'application/x-shockwave-flash';
