@@ -221,6 +221,7 @@ describe('HTMLVideo(container)', function() {
                 it('should create a <video> in the container', function() {
                     expect(container.children.length).toBe(1);
                     expect(video.tagName).toBe('VIDEO');
+                    expect(video.getAttribute('webkit-playsinline')).toBe('true');
                     expect(video.style.width).toBe('100%');
                     expect(video.style.height).toBe('100%');
                     expect(video.style.display).toBe('block');
