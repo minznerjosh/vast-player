@@ -169,6 +169,8 @@ describe('JavaScriptVPAID(container)', function() {
 
                 it('should create a <video> in the <body> of the <iframe>', function() {
                     expect(iframe.contentWindow.document.body.querySelector('video')).not.toBeNull();
+                    expect(video.getAttribute('webkit-playsinline')).toBe('true');
+                    expect(video.style.display).toBe('block');
                     expect(video.style.width).toBe('100%');
                     expect(video.style.height).toBe('100%');
                     expect(video.style.objectFit).toBe('contain');
