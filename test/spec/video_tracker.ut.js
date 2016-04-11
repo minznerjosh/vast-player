@@ -135,16 +135,16 @@ describe('VideoTracker(duration)', function() {
 
                         timeupdate(12.3); // Second 12 viewed
 
-                        timeupdate(32.9); // Second 32 viewed
+                        timeupdate(32.9); // Second 33 viewed
 
                         timeupdate(13); // Second 13 viewed
 
-                        timeupdate(37); // Second 37 viewed
+                        timeupdate(36.51); // Second 37 viewed
                     });
 
                     it('should set the value for that second to true in the seconds Array', function() {
                         expect(tracker.seconds).toEqual(Array.apply([], new Array(tracker.duration)).map(function(value, index) {
-                            return [1, 2, 12, 32, 13, 37].indexOf(index + 1) > -1;
+                            return [1, 2, 12, 33, 13, 37].indexOf(index + 1) > -1;
                         }));
                     });
                 });
