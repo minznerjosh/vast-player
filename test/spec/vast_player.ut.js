@@ -58,8 +58,8 @@ describe('VASTPlayer(container, config)', function() {
     describe('static:', function() {
         describe('properties:', function() {
             describe('vpaidSWFLocation', function() {
-                it('should be "https://cdn.jsdelivr.net/vast-player/__VERSION__/vast-player--vpaid.swf"', function() {
-                    expect(VASTPlayer.vpaidSWFLocation).toBe('https://cdn.jsdelivr.net/vast-player/__VERSION__/vast-player--vpaid.swf');
+                it('should be "https://cdn.jsdelivr.net/npm/vast-player@__VERSION__/dist/vast-player--vpaid.swf"', function() {
+                    expect(VASTPlayer.vpaidSWFLocation).toBe('https://cdn.jsdelivr.net/npm/vast-player@__VERSION__/dist/vast-player--vpaid.swf');
                     expect('__VERSION__').toBe(require('../../package.json').version, 'browserify-versionify is not working.');
                 });
             });
