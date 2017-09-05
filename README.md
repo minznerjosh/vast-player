@@ -16,7 +16,7 @@ Vast-Player makes it easy to playback linear VAST creatives in the browser. It c
 <html>
     <head>
         <title>Vast-Player Example</title>
-        <script src="https://cdn.jsdelivr.net/vast-player/latest/vast-player.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vast-player@latest/dist/vast-player.min.js"></script>
         <style>
             #container {
                 width: 640px; height: 385px;
@@ -75,7 +75,7 @@ Adding to Project
     ```javascript
     requirejs.config({
         paths: {
-            VASTPlayer: 'https://cdn.jsdelivr.net/vast-player/0.2/vast-player.min.js'
+            VASTPlayer: 'https://cdn.jsdelivr.net/npm/vast-player@0.2/dist/vast-player.min.js'
         }
     });
     ```
@@ -95,7 +95,7 @@ Adding to Project
 1. Add a `<script>` to the page
 
     ```html
-    <script src="https://cdn.jsdelivr.net/vast-player/0.2/vast-player.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vast-player@0.2/dist/vast-player.min.js"></script>
     ```
 
 2. Use the module
