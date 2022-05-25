@@ -42,7 +42,7 @@
     "brfs": "^1.4.3",
     "browserify": "^13.0.0",
     "flex-sdk": "^4.0.0-0",
-    "grunt": "^0.4.5",
+    "grunt": "^1.5.3",
     "grunt-browserify": "^4.0.1",
     "grunt-cli": "^0.1.13",
     "grunt-contrib-clean": "^0.7.0",
